@@ -5,12 +5,14 @@ export class LoginPage {
   readonly usernameInput: Locator;
   readonly passwordInput: Locator;
   readonly loginButton: Locator;
+  readonly errorMessage: Locator;          // add below loginButton declaration
 
   constructor(page: Page) {
     this.page = page;
     this.usernameInput = page.getByPlaceholder('Username');
     this.passwordInput = page.getByPlaceholder('Password');
     this.loginButton = page.getByRole('button', { name: 'Login' });
+    this.errorMessage = page.getByTestId('error');   // add inside constructor
   }
 
   async goto() {
