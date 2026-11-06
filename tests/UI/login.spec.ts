@@ -1,5 +1,4 @@
 import { test, expect } from '../../fixtures/pages.fixture';
-import { LoginPage } from '../../pages/LoginPage';
 import { users } from '../../data/users.data';
 
 
@@ -21,4 +20,12 @@ test.describe('Login', () => {
         await expect(loginPage.errorMessage).toContainText('locked out');
         await expect(page).not.toHaveURL(/inventory/);
     });
+
+    test('user cannot log in with empty credentials', async ({ page, loginPage }) => {
+
+        await loginPage.loginButton.click();
+
+        await expect(loginPage.errorMessage).toContainText('Username is required');
+        await expect(page).not.toHaveURL(/inventory/);
+    })
 });
