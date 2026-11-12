@@ -3,7 +3,3 @@ export const users = {
   lockedOut: { username: "locked_out_user", password: "secret_sauce" },
 };
 
-export const products = {
-  backpack: "Sauce Labs Backpack",
-  bikeLight: "Sauce Labs Bike Light",
-};
